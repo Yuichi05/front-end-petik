@@ -6,7 +6,7 @@
  */
 const users = [
   {
-    name : "Azhari",
+    name : "Yuichi",
     age : 19,
     major : "Informatika"
   },
@@ -18,22 +18,22 @@ const users = [
   {
    name : "Nurul",
    age : 17,
-   major : "Kuli Bangunan"
+   major : "Ibu Rumah tangga"
  },
   {
     name : "Samsul",
     age : 19,
-    major : "Informatika"
+    major : "Management Bisnis"
   },
   {
-    name : "Syafa",
+    name : "Syifa",
     age : 20,
     major : "Perawat"
   },
   {
     name : "Furqon",
     age : 21,
-    major : "Manajemen  Bisnis"
+    major : "Guru"
   },
  
 ];
