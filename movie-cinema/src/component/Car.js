@@ -1,4 +1,4 @@
-import sups from "./prof.png";
+import sups from "./supra.jpg";
 const Car = (props) => {
     const { merk, harga, isNew, colors, beli } = props;
     return (
