@@ -16,7 +16,6 @@ const User = (props) => {
   // const cellStyle = { textAlign: "center" };
   return (
     <div>
-      {/* <ul> */}
       <table className="card">
         <thead className="card-head">
           <tr>
@@ -36,16 +35,7 @@ const User = (props) => {
             </td>
           </tr>
         </tbody>
-
-        {/* <img src={gambar} alt="" width="150px" />
-          <li>Nama : {nama}</li>
-          <li>Alamat : {alamat}</li>
-          <li>Angkatan : {angkatan}</li>
-          <li>Hobi : {hobi}</li>
-          <li>Status : {isStatus ? "Lulus" : "Sedang Belajar"}</li>
-          <button onClick={handleClick}>Lihat</button> */}
       </table>
-      {/* </ul> */}
     </div>
   );
 };
