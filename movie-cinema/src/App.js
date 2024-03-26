@@ -1,49 +1,52 @@
 import { Component } from "react";
-import Header from "./component/Header.js";
-import User from "./component/User.js";
-import Car from "./component/Car.js";
-import Footer from "./component/Footer.js";
+import "./App.css";
+import Header from "./component/Navbar/Navbar.js";
+import User from "./component/User/User.js";
+import Main from "./component/Main/Main.js";
+import Car from "./component/Car/Car.js";
+import Footer from "./component/Footer/Footer.js";
 import imgProfile from "./component/prof.png";
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <Header />
-      <h1>Hello World</h1>
-      <User
-        gambar={imgProfile}
+      <Main />
+      {/* <h1>Hello World</h1> */}
+      {/* <User
+        // gambar={imgProfile}
         nama="Yuichi"
-        alamat="Tangerang"
-        angkatan={11}
-        hobi={["Futsal, Game, Badminton, Nonton, Basket"]}
-        isStatus={false}
-        lihat={(nama) => alert("Profil " + nama + " telah dibuka")}
+        member="platinum"
+        // alamat="Tangerang"
+        // angkatan={11}
+        // hobi={["Futsal, Game, Badminton, Nonton, Basket"]}
+        // isStatus={false}
+        message={(nama) => alert("Profil " + nama + " telah dibuka")}
+        subscribe={() => alert("Terimakasi sudah mensubscribe kami")}
       />
       <User
-        gambar="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9nPR4_CyTE4xJdV3eDJ3P4rDGs8uvpTEW-qK_-WzU6xfjqg1I1CeyCcPOHztCFtwfbrc&usqp=CAU"
+        // gambar="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9nPR4_CyTE4xJdV3eDJ3P4rDGs8uvpTEW-qK_-WzU6xfjqg1I1CeyCcPOHztCFtwfbrc&usqp=CAU"
         nama="Zenns"
-        alamat="Bandung"
-        angkatan={10}
-        hobi="Badminton, Game"
-        isStatus={true}
-        lihat={(nama) => alert("Profil " + nama + " telah dibuka")}
+        member="gold"
+        // alamat="Bandung"
+        // angkatan={10}
+        // hobi="Badminton, Game"
+        // isStatus={true}
+        message={(nama) => alert("Profil " + nama + " telah dibuka")}
+        subscribe={() => alert("Terimakasi sudah mensubscribe kami")}
       />
       <User
-         gambar="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmhjuzX_MetFn5xi8007XsRyX8X9_doXQDuMdaiX4DpUAZQdCW-jrn92jAVvE-iCPfvqY&usqp=CAU"
-        nama="Dobleh"
-        alamat="Medan"
-        angkatan={9}
-        hobi="Basket, Tidur"
-        isStatus={true}
-        lihat={(nama) => alert("Profil " + nama + " telah dibuka")}
-      />
-      <Car
-        merk="Supra"
-        harga={5}
-        isNew={true}
-        colors={["Hitam, Biru, Merah"]}
-        beli={() => alert("Selamat Anda telah membeli mobil!")} //ini () => disebut function callback / function anonymous supaya alertnya tidak muncul terus menerus
-      />
+        // gambar="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmhjuzX_MetFn5xi8007XsRyX8X9_doXQDuMdaiX4DpUAZQdCW-jrn92jAVvE-iCPfvqY&usqp=CAU"
+        nama="Gensuki"
+        member="silver"
+        // alamat="Medan"
+        // angkatan={9}
+        // hobi="Basket, Tidur"
+        // isStatus={true}
+        message={(nama) => alert("Profil " + nama + " telah dibuka")}
+        subscribe={() => alert("Terimakasi sudah mensubscribe kami")}
+      /> */}
+      {/* <Car /> */}
       <Footer nama="Muhammad Yusuf" />
     </div>
   );
