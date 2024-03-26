@@ -1,21 +1,23 @@
-/** @format */
-
-const User = ({ name, alamat, angkatan, status, hobi, klik, gambar }) => {
+const User = (props) => {
+	const { nama, alamat, angkatan, hobi, isStatus, lihat, gambar } = props;
+  
+	const handleClick = () => {
+	  lihat(nama); // Melihat nama sesuai yg kita klik
+	};
 	return (
-		<>
-			<ul>
-				<img src={gambar} alt="" width={264} />
-				<li>Nama : {name}</li>
-				<li>Alamat : {alamat}</li>
-				<li>Angakatan : ke-{angkatan}</li>
-				<li>status : {status ? "Lulus" : "sedang Belajar"}</li>
-				<li>Hobby : {hobi.map((hob) => hob + ", ")}</li>
-				<li>
-					<button onClick={klik}>Hit me</button>
-				</li>
-			</ul>
-		</>
+	  <div>
+		<ul>
+		  <img src={gambar} alt="" width="150px" />
+		  <li>Nama : {nama}</li>
+		  <li>Alamat : {alamat}</li>
+		  <li>Angkatan : {angkatan}</li>
+		  <li>Hobi : {hobi}</li>
+		  <li>Status : {isStatus ? "Lulus" : "Sedang Belajar"}</li>
+		  <button onClick={handleClick}>Lihat</button>
+		</ul>
+	  </div>
 	);
-};
-
-export default User;
+  };
+  
+  export default User;
+  
