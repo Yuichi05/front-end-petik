@@ -1,16 +1,43 @@
+/* User.css */
+
 .card {
-  background-color: #f3f3f3;
-  width: 300px;
-  margin: 20px auto;
-  border: 2px solid black;
+  border: 1px solid #ccc; /* Garis tepi kartu */
+  border-radius: 8px; /* Melengkungkan sudut kartu */
+  width: 300px; /* Lebar kartu */
+  margin: 20px; /* Jarak antara kartu */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan kartu */
 }
+
 .card-head {
-  text-align: center;
+  background-color: #f0f0f0; /* Warna latar belakang kepala kartu */
+  text-align: center; /* Posisi teks pada kepala kartu */
+  border-bottom: 1px solid #ccc; /* Garis bawah pada kepala kartu */
+  border-radius: 8px 8px 0 0; /* Melengkungkan sudut atas kepala kartu */
   font-weight: bold;
+    font-size: 1.5rem;
+    color: #4361ee;
 }
+
 .card-body {
+  padding: 20px; /* Padding di dalam konten kartu */
+}
+
+.member {
+  font-weight: bold; /* Membuat teks member menjadi lebih tebal */
+  color: #64748b;
   text-align: center;
 }
-.member {
-  color: #717171;
+
+button {
+  background-color: #007bff; /* Warna latar belakang tombol */
+  color: #fff; /* Warna teks tombol */
+  border: none; /* Menghapus border tombol */
+  border-radius: 4px; /* Melengkungkan sudut tombol */
+  padding: 8px 50px; /* Padding di dalam tombol */
+  cursor: pointer; /* Mengubah kursor saat diarahkan ke tombol */
+  margin: 4px; /* Jarak antara tombol */
+}
+
+button:hover {
+  background-color: #0056b3; /* Warna latar belakang tombol saat dihover */
 }

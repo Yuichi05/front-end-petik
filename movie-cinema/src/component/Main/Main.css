@@ -3,9 +3,3 @@
     display: flex;
     flex-wrap: wrap;
 }
-/* .content table {
-    margin-right: 10px;
-} */
-.content h5 {
-    margin-bottom: -20px;
-}

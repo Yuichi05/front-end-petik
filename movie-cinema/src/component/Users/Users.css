@@ -1,0 +1,24 @@
+/* User.css */
+.User-container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 16px;
+  }
+  
+  /* User.css atau jika ingin khusus untuk User.js */
+  .user-card {
+    background-color: #f9f9f9; /* Warna latar belakang kartu user */
+    border: 1px solid #ddd; /* Garis tepi kartu user */
+    border-radius: 8px; /* Melengkungkan sudut kartu user */
+    padding: 20px; /* Padding di sekitar konten kartu user */
+  }
+  
+  .user-card h3 {
+    margin-top: 0; /* Menghapus margin atas pada judul nama */
+  }
+  
+  .user-card p {
+    margin-bottom: 0; /* Menghapus margin bawah pada paragraf member */
+    color: #666; /* Warna teks member */
+  }
+  
