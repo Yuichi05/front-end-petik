@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./component/Navbar/Navbar.js";
 import Main from "./component/Main/Main.js";
 import Footer from "./component/Footer/Footer.js";
+// import AddMovieForm from "./component/AddMovieForm/AddMovieForm.js";
 
 function App() {
   return (

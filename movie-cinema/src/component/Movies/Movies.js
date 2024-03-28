@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Movie from "../Movie/Movie.js";
 import "../Movie/Movie.css";
+import AddMovieForm from "../AddMovieForm/AddMovieForm.js";
 const Movies = () => {
-  const datas = [
+  // const [nama, setNama] = useState("Ucup");
+
+  // console.log(nama);
+
+  const [datas, setDatas] = useState([
     {
       title: "Judul film 1",
       year: 2024,
@@ -50,32 +55,49 @@ const Movies = () => {
       year: 2024,
       genre: "Fantasy",
       poster: "https://picsum.photos/208",
-      },
-      {
-        title: "Judul film 9",
-        year: 2024,
-        genre: "Game",
-        poster: "https://picsum.photos/209",
-      },
-      {
-        title: "Judul film 10",
-        year: 2024,
-        genre: "Harem",
-        poster: "https://picsum.photos/210",
-      },
-      {
-        title: "Judul film 11",
-        year: 2024,
-        genre: "Isekai",
-        poster: "https://picsum.photos/211",
-      },
-      {
-        title: "Judul film 12",
-        year: 2024,
-        genre: "School",
-        poster: "https://picsum.photos/212",
-      },
-  ];
+    },
+    {
+      title: "Judul film 9",
+      year: 2024,
+      genre: "Game",
+      poster: "https://picsum.photos/209",
+    },
+    {
+      title: "Judul film 10",
+      year: 2024,
+      genre: "Harem",
+      poster: "https://picsum.photos/210",
+    },
+    {
+      title: "Judul film 11",
+      year: 2024,
+      genre: "Isekai",
+      poster: "https://picsum.photos/211",
+    },
+    {
+      title: "Judul film 12",
+      year: 2024,
+      genre: "School",
+      poster: "https://picsum.photos/212",
+    },
+  ]);
+
+  const handleClick = () => {
+    const movie = {
+      title: "Amazing Spibenermen",
+      year: "2012",
+      genre: "RPG",
+      poster: "https://picsum.photos/213",
+    };
+    setDatas([...datas, movie]);
+    // setNama(["Budi"]);
+  };
+  const addMovie = (movie) => {
+    setDatas([...datas, movie]);
+  };
+
+  console.log(datas);
+
   return (
     <div>
       <h2>Latest Movies</h2>
@@ -90,7 +112,9 @@ const Movies = () => {
             />
           );
         })}
+        {/* <button onClick={handleClick}>Add Movie</button>  menambahkan movie baru menggunakan button*/}
       </div>
+      <AddMovieForm onAddMovie={addMovie} />
     </div>
   );
 };

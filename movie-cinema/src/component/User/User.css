@@ -14,8 +14,8 @@
   border-bottom: 1px solid #ccc; /* Garis bawah pada kepala kartu */
   border-radius: 8px 8px 0 0; /* Melengkungkan sudut atas kepala kartu */
   font-weight: bold;
-    font-size: 1.5rem;
-    color: #4361ee;
+  font-size: 1.5rem;
+  color: #4361ee;
 }
 
 .card-body {
@@ -33,7 +33,7 @@ button {
   color: #fff; /* Warna teks tombol */
   border: none; /* Menghapus border tombol */
   border-radius: 4px; /* Melengkungkan sudut tombol */
-  padding: 8px 50px; /* Padding di dalam tombol */
+  padding: 8px 40px; /* Padding di dalam tombol */
   cursor: pointer; /* Mengubah kursor saat diarahkan ke tombol */
   margin: 4px; /* Jarak antara tombol */
 }
