@@ -1,0 +1,57 @@
+.movie-info-container {
+  display: flex;
+  width: 90%;
+  margin: 20px auto;
+  margin-top: 60px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movie-info-title {
+  margin-right: 20px;
+}
+
+.movie-info-title img{
+  width: 300px;
+  height: auto;
+}
+
+.movie-info-title h1 {
+  font-size: 2.5rem;
+}
+
+.movie-info-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-info-director,
+.movie-info-description {
+  margin-bottom: 10px;
+}
+
+.movie-info-director h3,
+.movie-info-description h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.movie-info-director p {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #0059ff;
+}
+
+.movie-info-popular p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.movie-info-description p {
+  font-size: 1rem;
+  color: #333;
+  max-width: 1000px;
+}

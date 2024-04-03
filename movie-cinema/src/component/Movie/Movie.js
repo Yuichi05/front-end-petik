@@ -1,17 +1,17 @@
 import React from "react";
-// import  "./Movie.css";
+import "./Movie.css";
 import { NavLink } from "react-router-dom";
 
 const Movie = (props) => {
-  const { title, genre, year, poster, id} = props;
+  const { title, genre, year, poster, id } = props;
   return (
     <div className="movie">
       <img src={`https://image.tmdb.org/t/p/w300/${poster}`} alt="gambar" />
       <h3 className="title">
         <NavLink to={`/detail/${id}`}>{title}</NavLink>
       </h3>
-      <p class="year">{year}</p>
-      <p class="genre">{genre}</p>
+      <p className="year">{year}</p>
+      <p className="genre">{genre}</p>
     </div>
   );
 };

@@ -3,22 +3,28 @@ import "./Hero.css";
 
 const Hero = () => {
   return (
-    <div class="container">
-      <section class="hero">
-        <div class="hero-left">
-          <h2 class="hero-title">Title</h2>
-          <h3 class="hero-genre">Genre :</h3>
-          <p class="hero-description">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, nulla
-            accusamus! Totam distinctio velit, quia illo exercitationem omnis
-            quos quae non laborum ipsum repellendus labore.
-          </p>
-          <p class="hero-button">watch</p>
+    <div className="container">
+      <div className="hero">
+        <img src="https://picsum.photos/200" alt="Hero" className="hero-img" />
+        <div className="hero-content">
+          <h1 className="hero-title">PinstaVie</h1>
+          <div className="hero-genre">
+            Genre :{" "}
+            <span className="genre">
+              Aksi, Animasi, Barat, Cerita Fiksi, Cerita Seru, Dokumenter,
+              Drama, Fantasi, Film TV, Kejahatan, Keluarga, Kengerian, Komedi,
+              Misteri, Musik, Percintaan, Petualangan, Sejarah
+            </span>
+          </div>
+          <div className="hero-desc">
+            Description :
+            <span className="desc">
+              Millions of movies, TV shows and people to discover. Explore now.
+            </span>
+          </div>
+          <button className="hero-button">Watch</button>
         </div>
-        <div class="hero-right">
-          <img src="https://picsum.photos/200" alt="hero-img" />
-        </div>
-      </section>
+      </div>
     </div>
   );
 };

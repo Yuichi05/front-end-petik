@@ -1,0 +1,45 @@
+.movie-card {
+  width: 300px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.top-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.top-judul {
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  background-color: #eee;
+  margin-bottom: 0;
+}
+
+.top-judul:hover {
+  background-color: #ddd;
+}
+
+.top-rilis {
+  padding: 10px;
+  text-align: center;
+  color: #666;
+  margin-bottom: 0;
+}
+
+.top-voa {
+  color: #ff2626;
+}
+.top-voc {
+  color: #008cff;
+}
+
+.top-voa,
+.top-voc {
+  text-align: center;
+}

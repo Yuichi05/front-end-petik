@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import TopRateds from "../../component/TopRateds/TopRateds.js";
+import "../../component/TopRateds/TopRateds.css";
 
 export const Toprated = () => {
   return (
-    <h1>Top Rated</h1>
-  )
-}
+    <div>
+      <TopRateds />
+    </div>
+  );
+};
 
 export default Toprated;

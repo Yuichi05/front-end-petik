@@ -1,19 +1,30 @@
 .movies-container {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 10px;
+}
+
+h3 {
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+  color: #777;
+  text-align: center;
 }
 
 /* medium screen */
 @media (min-width: 768px) {
-    .movies-container {
-        grid-template-columns: repeat(3,1fr);
-    }
+  .movies-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* large screen */
 @media (min-width: 992px) {
-    .movies-container {
-        grid-template-columns: repeat(6,1fr);
-    }
+  .movies-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }

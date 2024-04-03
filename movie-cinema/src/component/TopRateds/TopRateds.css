@@ -1,0 +1,41 @@
+.toprat-container {
+    /* padding: 20px; */
+    background-color: #f5f5f5;
+  }
+
+  .toprat-heading {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .toprat {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  .toprat .movie-card {
+    /* width: calc(33.33% - 10px); */
+    margin-bottom: 20px;
+  }
+  
+  .toprat .top-judul {
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    background-color: #eee;
+    margin-bottom: -20px;
+  }
+  
+  .toprat .top-judul:hover {
+    background-color: #ddd;
+  }
+  
+  .toprat .top-rilis {
+    padding: 10px;
+    text-align: center;
+    color: #666;
+    margin-bottom: -10px;
+  }
