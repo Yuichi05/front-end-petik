@@ -13,12 +13,12 @@ const Users = () => {
     {
       nama: "Oreki Houtarou",
       member: "Master",
-      message: "Saya tak pernah menyentuh kertas.",
+      message: "Jika kau tidak ingin melakukannya, tidak usah dilakukan. Jika kau ingin melakukannya, lakukanlah dengan cepat",
     },
     {
       nama: "Judul film 3",
       member: "Diamond",
-      message: "Tak terlalu berharap",
+      message: "Jangan terlalu berharap kepada manusia",
     },
     {
       nama: "Judul film 4",
