@@ -1,18 +1,18 @@
 import React from "react";
-import { Container, Row } from "reactstrap";
+import { Row } from "reactstrap";
 
 const Footer = () => {
   return (
-    <Container>
-      <Row className="text-center">
-        <div>
-          <footer>
+    <Row className="text-center">
+      <div>
+        <footer className="footer">
+          <div class="content has-text-centered">
             <h3>Copyright &copy; 2024 Developed by Yuichi</h3>
-            <span>Make with &#10084;</span>
-          </footer>
-        </div>
-      </Row>
-    </Container>
+            <p>Make with &#10084;</p>
+          </div>
+        </footer>
+      </div>
+    </Row>
   );
 };
 

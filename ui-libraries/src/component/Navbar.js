@@ -6,6 +6,7 @@ import {
   NavbarBrand,
   Nav,
   NavbarText,
+  Button,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,12 +23,22 @@ function NavbarComponent(args) {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
-            <NavLink className="text-light mx-3 text-decoration-none" to={'/'}>Home</NavLink>
-            <NavLink className="text-light mx-3 text-decoration-none" to={'/dashboard'}>Dashboard</NavLink>
-            <NavLink className="text-light text-decoration-none" to={'/top'} >Top Rated</NavLink>
+            <NavLink className="text-light mx-3 text-decoration-none" to={"/"}>
+              Home
+            </NavLink>
+            <NavLink
+              className="text-light mx-3 text-decoration-none"
+              to={"/dashboard"}
+            >
+              Dashboard
+            </NavLink>
+            <NavLink className="text-light text-decoration-none" to={"/top"}>
+              Top Rated
+            </NavLink>
           </Nav>
-          <NavLink className="text-light text-decoration-none mx-4" to={'/login'} >Login</NavLink>
-          <NavbarText>Yuichi</NavbarText>
+          <NavLink to={"/login"}>
+            <Button className="button is-white">Login</Button>
+          </NavLink>
         </Collapse>
       </Navbar>
     </div>
