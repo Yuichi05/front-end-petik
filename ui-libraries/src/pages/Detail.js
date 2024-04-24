@@ -1,8 +1,8 @@
 import React from "react";
-import DetailProduct from "./DetailProduct";
+import DetailProduct from "../component/DetailProduct";
 // import DetailCourses from "./DetailCourses";
-import NavbarComponent from "./Navbar";
-import Footer from "./Footer";
+import NavbarComponent from "../component/Navbar";
+import Footer from "../component/Footer";
 
 const Detail = () => {
   return (

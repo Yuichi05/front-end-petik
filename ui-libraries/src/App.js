@@ -6,8 +6,11 @@ import Courses from "./pages/Courses.js";
 import Dashboard from "./pages/Dashboard.js";
 import Login from "./component/auth/Login.js";
 import Register from "./component/auth/Register.js";
-import Detail from "./component/Detail.js";
-import CourseDetail from "./component/DetailCourses.js";
+import Detail from "./pages/Detail.js";
+import TableCourse from "./course/TableCourse.js";
+import CourseDetail from "./pages/DetailCoursePage.js";
+import AddCourse from "./course/AddCourse.js";
+import NotFund from "./component/NotFund.js";
 
 function App() {
   return (
@@ -20,7 +23,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/detail" element={<Detail />} />
-          <Route path="/courses/:id" element={<CourseDetail/>} />
+          <Route path="/courses/:id" element={<CourseDetail />} />
+          <Route path="/table-course" element={<TableCourse />} />
+          <Route path="/add-course" element={<AddCourse />} />
+          <Route path="/*" element={<NotFund />} />
         </Routes>
       </BrowserRouter>
     </div>
