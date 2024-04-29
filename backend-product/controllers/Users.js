@@ -1,7 +1,7 @@
-const User = require("../models/UserModel.js");
-const argon2 = require("argon2");
+import User from "../models/UserModel.js";
+import argon2, { hash } from "argon2";
 
-exports.getUsers = async (req, res) => {
+export const getUsers = async (req, res) => {
   try {
     const response = await User.findAll({
       attributes: ["uuid", "name", "email", "role"],
@@ -12,7 +12,7 @@ exports.getUsers = async (req, res) => {
   }
 };
 
-exports.getUsersById = async (req, res) => {
+export const getUsersById = async (req, res) => {
   try {
     const response = await User.findOne({
       attributes: ["uuid", "name", "email", "role"],
@@ -26,8 +26,15 @@ exports.getUsersById = async (req, res) => {
   }
 };
 
-exports.createUser = async (req, res) => {
+export const createUser = async (req, res) => {
   const { name, email, password, confPassword, role } = req.body;
+  // const name = req.body.name;
+  // const email = req.body.email;
+  // const password = req.body.password;
+  // const confPassword = req.body.confPassword;
+  // const role = req.body.role;
+
+  console.log(req.body);
 
   if (password !== confPassword)
     return res
@@ -47,7 +54,7 @@ exports.createUser = async (req, res) => {
   }
 };
 
-exports.updateUser = async (req, res) => {
+export const updateUser = async (req, res) => {
   const user = await User.findOne({
     where: {
       uuid: req.params.id,
@@ -85,7 +92,7 @@ exports.updateUser = async (req, res) => {
   }
 };
 
-exports.deleteUser = async (req, res) => {
+export const deleteUser = async (req, res) => {
   const user = await User.findOne({
     where: {
       uuid: req.params.id,

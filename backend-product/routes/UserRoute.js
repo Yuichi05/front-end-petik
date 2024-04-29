@@ -1,12 +1,12 @@
-const express = require("express");
-const {
+import express from "express";
+import {
   getUsers,
   getUsersById,
   createUser,
   updateUser,
   deleteUser,
-} = require("../controllers/Users.js");
-const { verifyUser, adminOnly } = require("../middleware/AuthUser.js");
+} from "../controllers/Users.js";
+import { verifyUser, adminOnly } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 
@@ -16,4 +16,4 @@ router.post("/users", verifyUser, adminOnly, createUser);
 router.put("/users/:id", verifyUser, adminOnly, updateUser);
 router.delete("/users/:id", verifyUser, adminOnly, deleteUser);
 
-module.exports = router;
+export default router;

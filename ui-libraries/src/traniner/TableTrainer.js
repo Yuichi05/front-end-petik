@@ -4,31 +4,31 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function TableCourse() {
-  const [courses, setCourses] = useState([]);
+function TableTrainer() {
+  const [trainer, setTrainer] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [coursesPerPage] = useState(5);
+  const [trainerPerPage] = useState(5);
 
   useEffect(() => {
-    getCourses();
+    getTrainer();
   }, []);
 
-  const getCourses = async () => {
-    const response = await axios.get("https://api.sukmax.my.id/course");
-    setCourses(response.data);
+  const getTrainer = async () => {
+    const response = await axios.get("https://api.sukmax.my.id/trainer");
+    setTrainer(response.data);
   };
 
-  const deleteCourse = async (id) => {
+  const deleteTrainer = async (id) => {
     try {
-      await axios.delete(`https://api.sukmax.my.id/course/$/{id}`);
+      await axios.delete(`https://api.sukmax.my.id/trainer/$/{id}`);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const LastCourse = currentPage * coursesPerPage;
-  const FirstCourse = LastCourse - coursesPerPage;
-  const CurrentCourse = courses.slice(FirstCourse, LastCourse);
+  const LastTrainer = currentPage * trainerPerPage;
+  const FirstTrainer = LastTrainer - trainerPerPage;
+  const CurrentTrainer = trainer.slice(FirstTrainer, LastTrainer);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -46,24 +46,25 @@ function TableCourse() {
           <tr>
             <th>No</th>
             <th>Name</th>
-            <th>Descrition</th>
+            <th>Address</th>
+            <th>Skill</th>
             <th>Image</th>
-            <th>Action</th>
           </tr>
         </thead>
-        {CurrentCourse.map((data, index) => {
+        {CurrentTrainer.map((data, index) => {
           return (
             <tbody key={data.id}>
               <tr>
                 <td>{index + 1}</td>
                 <td>{data.name}</td>
-                <td>{data.desc}</td>
+                <td>{data.address}</td>
+                <td>{data.skill}</td>
                 <td>
                   <img src={data.url} alt="foto" width={100} />
                 </td>
                 <td>
                   <Link
-                    to={`/course/edit/${data.id}`}
+                    to={`/trainer/edit/${data.id}`}
                     className="button is-warning is-small"
                   >
                     Edit
@@ -71,7 +72,7 @@ function TableCourse() {
                   <button
                     onClick={() => {
                       if (window.confirm("apakah data ini ingin di hapus?")) {
-                        deleteCourse();
+                        deleteTrainer();
                       } else {
                       }
                     }}
@@ -97,7 +98,7 @@ function TableCourse() {
               Previous
             </button>
           </li>
-          {[...Array(Math.ceil(courses.length / coursesPerPage)).keys()].map(
+          {[...Array(Math.ceil(trainer.length / trainerPerPage)).keys()].map(
             (page) => (
               <li className="page-item" key={page}>
                 <button
@@ -127,4 +128,4 @@ function TableCourse() {
   );
 }
 
-export default TableCourse;
+export default TableTrainer;

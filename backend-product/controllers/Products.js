@@ -1,10 +1,10 @@
-const Product = require("../models/ProductModel.js");
-const User = require("../models/UserModel.js");
-const { Op } = require("sequelize");
-const path = require("path");
-const fs = require("fs");
+import Product from "../models/ProductModel.js";
+import User from "../models/UserModel.js";
+import { Op } from "sequelize";
+import path from "path";
+import fs from "fs";
 
-exports.getProducts = async (req, res) => {
+export const getProducts = async (req, res) => {
   try {
     let response;
     if (req.role === "admin") {
@@ -18,6 +18,7 @@ exports.getProducts = async (req, res) => {
         ],
       });
     } else {
+      // jika role user maka hanya dapat melihat data produk yg user input
       response = await Product.findAll({
         attributes: ["uuid", "name", "price"],
         where: {
@@ -37,7 +38,7 @@ exports.getProducts = async (req, res) => {
   }
 };
 
-exports.getProductsById = async (req, res) => {
+export const getProductsById = async (req, res) => {
   try {
     const product = await Product.findOne({
       where: {
@@ -64,6 +65,7 @@ exports.getProductsById = async (req, res) => {
         ],
       });
     } else {
+      // jika role user maka hanya dapat melihat data produk yg user input
       response = await Product.findOne({
         attributes: ["uuid", "name", "price"],
         where: {
@@ -84,7 +86,7 @@ exports.getProductsById = async (req, res) => {
   }
 };
 
-exports.createProduct = async (req, res) => {
+export const createProduct = async (req, res) => {
   const name = req.body.name;
   const price = req.body.price;
   const desc = req.body.desc;
@@ -118,7 +120,7 @@ exports.createProduct = async (req, res) => {
   });
 };
 
-exports.updateProduct = async (req, res) => {
+export const updateProduct = async (req, res) => {
   try {
     const product = await Product.findOne({
       where: {
@@ -144,6 +146,7 @@ exports.updateProduct = async (req, res) => {
       if (fileSize > 5000000)
         return res.status(422).json({ msg: "Image must be less than 5 MB" });
 
+      // hapus gambar jika ada
       const filepath = `./public/images/${product.image}`;
       if (fs.existsSync(filepath)) {
         fs.unlinkSync(filepath);
@@ -151,6 +154,7 @@ exports.updateProduct = async (req, res) => {
         console.log("File does not exist:", filepath);
       }
 
+      // ganti gambar dengan yang baru
       image.mv(`./public/images/${fileName}`, async (err) => {
         if (err) return res.status(500).json({ msg: err.message });
       });
@@ -207,7 +211,7 @@ exports.updateProduct = async (req, res) => {
   }
 };
 
-exports.deleteProduct = async (req, res) => {
+export const deleteProduct = async (req, res) => {
   try {
     const product = await Product.findOne({
       where: {

@@ -11,6 +11,10 @@ import TableCourse from "./course/TableCourse.js";
 import CourseDetail from "./pages/DetailCoursePage.js";
 import AddCourse from "./course/AddCourse.js";
 import NotFund from "./component/NotFund.js";
+import AddTrainer from "./traniner/AddTrainer.js";
+import TableTrainer from "./traniner/TableTrainer.js";
+import EditCourse from "./course/EditCourse.js";
+import EditTrainer from "./traniner/EditTrainer.js";
 
 function App() {
   return (
@@ -26,7 +30,11 @@ function App() {
           <Route path="/courses/:id" element={<CourseDetail />} />
           <Route path="/table-course" element={<TableCourse />} />
           <Route path="/add-course" element={<AddCourse />} />
+          <Route path="/course/edit/:id" element={<EditCourse />} />
           <Route path="/*" element={<NotFund />} />
+          <Route path="/table-trainer" element={<TableTrainer />} />
+          <Route path="/add-trainer" element={<AddTrainer />} />
+          <Route path="/trainer/edit/:id" element={<EditTrainer />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,7 +1,7 @@
-const Sequelize = require("sequelize");
-const db = require("../config/database.js");
+import Sequelize from "sequelize";
+import db from "../config/database.js";
 const { DataTypes } = Sequelize;
-const Users = require("./UserModel.js");
+import Users from "./UserModel.js";
 
 const Products = db.define(
   "product",
@@ -67,4 +67,4 @@ const Products = db.define(
 
 Users.hasMany(Products);
 Products.belongsTo(Users, { foreignKey: "userId" });
-module.exports = Products;
+export default Products;

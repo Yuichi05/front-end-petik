@@ -1,81 +1,99 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../component/Layout";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const AddCourse = () => {
+const EditTrainer = () => {
+  const { id } = useParams();
   const [name, setName] = useState("");
-  const [trainerId, setTrainerId] = useState("");
-  const [desc, setDesc] = useState("");
+  const [address, setAddress] = useState("");
+  const [skill, setSkill] = useState("");
   const [file, setFile] = useState("");
-  const [preview, setPreview] = useState("");
+  const [image, setImage] = useState("");
   const navigate = useNavigate();
 
   const loadImage = (e) => {
     const image = e.target.files[0];
     setFile(image);
-    setPreview(URL.createObjectURL(image));
+    setFile(URL.createObjectURL(image));
   };
 
-  const saveCourse = async (e) => {
+  const getTrainer = async () => {
+    const response = await axios.get(`https://api.sukmax.my.id/trainer/${id}`);
+    setName(response.data.name);
+    setAddress(response.data.address);
+    setSkill(response.data.skill);
+    setFile(response.data.url);
+  };
+
+  useEffect(() => {
+    getTrainer();
+  }, []);
+
+  const updateTrainer = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
-        "https://api.sukmax.my.id/course",
+      await axios.put(
+        `https://api.sukmax.my.id/trainer/${id}`,
         {
           name: name,
-          trainer_id: trainerId,
-          desc: desc,
-          file: file,
+          address: address,
+          skill: skill,
+          url: file,
+          image: image,
         },
-        // agar bisa upload file
         {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         }
       );
-      // redirect ke /table-course
-      navigate("/table-course");
+      navigate("/table-trainer");
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <Layout>
-      <h2 className="title">Course</h2>
-      <h3 className="subtitle">Add New Course</h3>
-      <form onSubmit={saveCourse}>
+      <h2 className="title">Trainer</h2>
+      <h3 className="subtitle">Update Trainer</h3>
+      <form onSubmit={updateTrainer}>
         <div className="field">
           <label className="label">Name</label>
           <div className="control">
             <input
               className="input"
               type="text"
-              placeholder="Masukkan nama course"
+              value={name}
+              placeholder="Masukkan nama trainer"
               onChange={(e) => setName(e.target.value)}
             />
           </div>
         </div>
         <div className="field">
-          <label className="label">Trainer ID</label>
+          <label className="label">Address</label>
           <div className="control">
             <input
               className="input"
               type="text"
-              onChange={(e) => setTrainerId(e.target.value)}
-              placeholder="Masukkan trainer id"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Masukkan Address"
             />
           </div>
         </div>
         <div className="field">
-          <label className="label">Description</label>
+          <label className="label">Skill</label>
           <div className="control">
-            <textarea
-              className="textarea"
-              onChange={(e) => setDesc(e.target.value)}
-            ></textarea>
+            <input
+              className="input"
+              type="text"
+              value={skill}
+              onChange={(e) => setSkill(e.target.value)}
+              placeholder="Masukkan Skill"
+            />
           </div>
         </div>
         <div class="file">
@@ -94,9 +112,9 @@ const AddCourse = () => {
             </span>
           </label>
         </div>
-        {preview ? (
+        {file ? (
           <figure className="image is-128x128 mb-5">
-            <img src={preview} alt="preview-img" />
+            <img src={file} alt="preview-img" />
           </figure>
         ) : (
           ""
@@ -108,7 +126,7 @@ const AddCourse = () => {
             </button>
           </div>
           <div class="control">
-            <Link to={"/table-course"}>
+            <Link to={"/table-trainer"}>
               <button class="button is-link is-light">Cancel</button>
             </Link>
           </div>
@@ -118,4 +136,4 @@ const AddCourse = () => {
   );
 };
 
-export default AddCourse;
+export default EditTrainer;

@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import Layout from "../component/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
-const AddCourse = () => {
+const AddTrainer = () => {
   const [name, setName] = useState("");
-  const [trainerId, setTrainerId] = useState("");
-  const [desc, setDesc] = useState("");
+  const [address, setAddress] = useState("");
+  const [skill, setSkill] = useState("");
   const [file, setFile] = useState("");
   const [preview, setPreview] = useState("");
   const navigate = useNavigate();
@@ -18,15 +17,15 @@ const AddCourse = () => {
     setPreview(URL.createObjectURL(image));
   };
 
-  const saveCourse = async (e) => {
+  const saveTrainer = async (e) => {
     e.preventDefault();
     try {
       await axios.post(
-        "https://api.sukmax.my.id/course",
+        "https://api.sukmax.my.id/trainer",
         {
           name: name,
-          trainer_id: trainerId,
-          desc: desc,
+          address: address,
+          skill: skill,
           file: file,
         },
         // agar bisa upload file
@@ -37,55 +36,37 @@ const AddCourse = () => {
         }
       );
       // redirect ke /table-course
-      navigate("/table-course");
+      navigate("/table-trainer");
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <Layout>
-      <h2 className="title">Course</h2>
-      <h3 className="subtitle">Add New Course</h3>
-      <form onSubmit={saveCourse}>
+      <h2 className="title">Trainer</h2>
+      <h3 className="subtitle">Add New Trainer</h3>
+      <form onSubmit={saveTrainer}>
         <div className="field">
           <label className="label">Name</label>
           <div className="control">
-            <input
-              className="input"
-              type="text"
-              placeholder="Masukkan nama course"
-              onChange={(e) => setName(e.target.value)}
-            />
+            <input className="input" type="text" placeholder="Masukkan nama trainer" onChange={(e) => setName(e.target.value)} />
           </div>
         </div>
         <div className="field">
-          <label className="label">Trainer ID</label>
+          <label className="label">Address</label>
           <div className="control">
-            <input
-              className="input"
-              type="text"
-              onChange={(e) => setTrainerId(e.target.value)}
-              placeholder="Masukkan trainer id"
-            />
+            <input className="input" type="text" onChange={(e) => setAddress(e.target.value)} placeholder="Masukkan address" />
           </div>
         </div>
         <div className="field">
-          <label className="label">Description</label>
+          <label className="label">Skill</label>
           <div className="control">
-            <textarea
-              className="textarea"
-              onChange={(e) => setDesc(e.target.value)}
-            ></textarea>
+            <input className="input" type="text" onChange={(e) => setSkill(e.target.value)} placeholder="Masukkan skill" />
           </div>
         </div>
         <div class="file">
           <label class="file-label">
-            <input
-              class="file-input"
-              type="file"
-              name="resume"
-              onChange={loadImage}
-            />
+            <input class="file-input" type="file" name="resume" onChange={loadImage} />
             <span class="file-cta">
               <span class="file-icon">
                 <i class="fas fa-upload"></i>
@@ -108,9 +89,7 @@ const AddCourse = () => {
             </button>
           </div>
           <div class="control">
-            <Link to={"/table-course"}>
-              <button class="button is-link is-light">Cancel</button>
-            </Link>
+            <button class="button is-link is-light">Cancel</button>
           </div>
         </div>
       </form>
@@ -118,4 +97,4 @@ const AddCourse = () => {
   );
 };
 
-export default AddCourse;
+export default AddTrainer;

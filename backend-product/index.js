@@ -1,26 +1,27 @@
-const express = require("express");
-const cors = require("cors");
-const session = require("express-session");
-const dotenv = require("dotenv");
-const ProductRoute = require("./routes/ProductRoute.js");
-const UserRoute = require("./routes/UserRoute.js");
-const AuthRoute = require("./routes/AuthRoute.js");
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const db = require("./config/database.js");
-const fileUpload = require("express-fileupload");
-const path = require("path");
+import express from "express";
+import cors from "cors";
+import session from "express-session";
+import dotenv from "dotenv";
+import ProductRoute from "./routes/ProductRoute.js";
+import UserRoute from "./routes/UserRoute.js";
+import AuthRoute from "./routes/AuthRoute.js";
+import SequelizeStore from "connect-session-sequelize";
+import db from "./config/database.js";
+import fileUpload from "express-fileupload";
 
 dotenv.config();
 
 const app = express();
 
-const sessionStore = new SequelizeStore({
-  db: db,
-});
+const sessionStore = SequelizeStore(session.Store);
 
 // agar dapat mengakses gambar di public
 app.use(express.static("public"));
 app.use(fileUpload());
+
+const store = new sessionStore({
+  db: db,
+});
 
 // Middleware
 app.use(
@@ -28,7 +29,7 @@ app.use(
     secret: process.env.SESS_SECRET,
     resave: false,
     saveUninitialized: true,
-    store: sessionStore,
+    store: store,
     cookie: {
       secure: "auto",
     },
@@ -37,7 +38,7 @@ app.use(
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5000",
+    origin: "http://localhost:3000",
   })
 );
 
@@ -48,10 +49,7 @@ app.use(ProductRoute);
 app.use(UserRoute);
 app.use(AuthRoute);
 
-// Landing page untuk penggunaan API
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+// store.sync();
 
 // Server listening
 app.listen(process.env.APP_PORT || 5000, () => {
